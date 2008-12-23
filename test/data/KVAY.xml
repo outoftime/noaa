@@ -27,7 +27,7 @@
         <wind_dir>Northwest</wind_dir>
         <wind_degrees>330</wind_degrees>
         <wind_mph>3.45</wind_mph>
-        <wind_gust_mph>NA</wind_gust_mph>
+        <wind_gust_mph>10.25</wind_gust_mph>
         <pressure_string>30.70&quot; (1039.5 mb)</pressure_string>
         <pressure_mb>1039.5</pressure_mb>
         <pressure_in>30.70</pressure_in>
@@ -35,11 +35,11 @@
         <dewpoint_f>9</dewpoint_f>
         <dewpoint_c>-13</dewpoint_c> 
         <heat_index_string>NA</heat_index_string>         
-        <heat_index_f>NA</heat_index_f>
-        <heat_index_c>NA</heat_index_c>
+        <heat_index_f>105</heat_index_f>
+        <heat_index_c>41</heat_index_c>
         <windchill_string>NA</windchill_string>
-        <windchill_f>NA</windchill_f>
-        <windchill_c>NA</windchill_c>
+        <windchill_f>19</windchill_f>
+        <windchill_c>-7</windchill_c>
 	<visibility_mi>10.00</visibility_mi>
  	<icon_url_base>http://weather.gov/weather/images/fcicons/</icon_url_base>	
 	<icon_url_name>skc.jpg</icon_url_name>

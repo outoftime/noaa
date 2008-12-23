@@ -1,5 +1,7 @@
 # -*- ruby -*-
 
+ENV['RUBYOPT'] = '-W1'
+
 require 'rubygems'
 require 'hoe'
 require './lib/noaa.rb'
