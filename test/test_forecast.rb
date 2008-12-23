@@ -31,6 +31,12 @@ class TestForecast < NOAA::TestCase
     end
   end
 
+  ['Rain', 'Rain', 'Slight Chance Rain', 'Chance Rain'].each_with_index do |summary, i|
+    should "return correct weather summary for day #{i}" do
+      forecast[i].weather_summary.should == summary
+    end
+  end
+
   private
 
   def forecast

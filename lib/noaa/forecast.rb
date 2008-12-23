@@ -33,6 +33,7 @@ module NOAA
           day.ends_at = ends[i]
           day.high = maxima[i]
           day.low = minima[i]
+          day.weather_summary = weather_summaries[i]
         end
         days
       end
@@ -59,6 +60,12 @@ module NOAA
     def minima
       @minima ||= @doc.find(%q{/dwml/data/parameters[1]/temperature[@type='minimum'][@units='Fahrenheit'][1]/value/text()}).map do |node|
         node.to_s.to_i
+      end
+    end
+
+    def weather_summaries
+      @weather_summaries ||= @doc.find(%q{/dwml/data/parameters[1]/weather[1]/weather-conditions}).map do |node|
+        node['weather-summary'].to_s
       end
     end
   end
