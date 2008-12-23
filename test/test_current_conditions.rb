@@ -1,6 +1,6 @@
 require File.join(File.dirname(__FILE__), 'test_helper')
 
-class TestNOAA < NOAA::TestCase
+class TestCurrentConditions < NOAA::TestCase
   include LibXML
   XML_DOC = XML::Document.file(File.join(File.dirname(__FILE__), 'data', 'KVAY.xml'))
 
