@@ -34,6 +34,8 @@ module NOAA
           day.high = maxima[i]
           day.low = minima[i]
           day.weather_summary = weather_summaries[i]
+          day.daytime_precipitation_probability = precipitation_probabilities[i*2]
+          day.evening_precipitation_probability = precipitation_probabilities[i*2+1]
         end
         days
       end
@@ -66,6 +68,12 @@ module NOAA
     def weather_summaries
       @weather_summaries ||= @doc.find(%q{/dwml/data/parameters[1]/weather[1]/weather-conditions}).map do |node|
         node['weather-summary'].to_s
+      end
+    end
+
+    def precipitation_probabilities
+      @precipitation_probabilities ||= @doc.find(%q{/dwml/data/parameters[1]/probability-of-precipitation[1]/value/text()}).map do |node|
+        node.to_s.to_i
       end
     end
   end

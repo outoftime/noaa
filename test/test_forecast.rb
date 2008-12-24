@@ -37,6 +37,18 @@ class TestForecast < NOAA::TestCase
     end
   end
 
+  [5, 94, 22, 50].each_with_index do |probability, i|
+    should "return correct daytime probability of precipitation for day #{i}" do
+      forecast[i].daytime_precipitation_probability.should == probability
+    end
+  end
+
+  [77, 84, 19, 50].each_with_index do |probability, i|
+    should "return correct evening probability of precipitation for day #{i}" do
+      forecast[i].evening_precipitation_probability.should == probability
+    end
+  end
+
   private
 
   def forecast
