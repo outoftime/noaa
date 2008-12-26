@@ -13,10 +13,6 @@ daily forecasts (through NOAA::Forecast).
 - Find both current conditions and daily forecasts using lat/lng.
 - Access all relevant data returned by the NOAA using a simple and intuitive API
 
-== Usage:
-
-  # TODO: write usage
-
 == Requirements:
 
 - libxml-ruby >= 0.9.7 (if there is demand, I could look into allowing REXML as a fallback - shoot me an email)
@@ -24,7 +20,30 @@ daily forecasts (through NOAA::Forecast).
 
 == Installation:
 
-NOAA is still a work in progress and not yet available as a gem.
+  sudo gem sources --add http://gems.github.com (only if you haven't done this before)
+  sudo gem install outoftime-noaa
+  noaa-update-stations
+
+== Usage:
+
+  # Get current conditions
+  conditions = NOAA.current_conditions(lat, lng)
+  puts "The temperature is currently #{conditions.temperature} degrees, with #{conditions.weather_description.downcase} conditions."
+  
+  # Get closest weather station, then get current conditions
+  # See discussion in documentation of NOAA.current_conditions
+  # for why this is a good idea
+  station_id = NOAA::Station.closest_to(lat, lng).id
+  # persist the station id wherever...
+  conditions = NOAA.current_conditions_for_station(station_id)
+
+  # Get four-day forecast
+  forecast = NOAA.forecast(4, lat, lng) # This method should not be called more than once an hour for a given lat/lng
+  ['today', 'tomorrow', (Date.today + 2).to_s, (Date.today + 3).to_s].each_with_index do |date, i|
+    puts "The high for #{date} will be #{forecast[i].high}"
+  end
+
+See the API documentation for further discussion.
 
 == Contact:
 
