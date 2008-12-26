@@ -55,7 +55,7 @@ I'm always open to feature requests, bugs, and patches.
 
 (The MIT License)
 
-Copyright (c) 2008 FIX
+Copyright (c) 2008 Mat Brown
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
