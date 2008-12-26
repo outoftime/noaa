@@ -12,6 +12,7 @@ Hoe.new('noaa', NOAA::VERSION) do |p|
   p.description = 'Ruby API for National Oceanic and Atmospheric Administration weather data'
   p.email = 'mat@patch.com'
   p.url = 'http://github.com/outoftime/noaa'
+  p.post_install_message = "Be sure to update the weather station list:\n\n\tnoaa-update-stations\n\nThis can be run at any time to update the stations, but you must run it once to initially populate the station list."
   p.extra_deps = [Gem::Dependency.new('libxml-ruby', '>= 0.9.7'),
                   Gem::Dependency.new('andre-geokit', '>= 1.2.0')]
   p.extra_dev_deps = [Gem::Dependency.new('jeremymcanally-context', '>= 0.0.6'),
