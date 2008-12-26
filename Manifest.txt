@@ -3,6 +3,7 @@ Manifest.txt
 README.txt
 Rakefile
 bin/noaa-update-stations
+data/stations.yml
 lib/noaa.rb
 lib/noaa/current_conditions.rb
 lib/noaa/forecast.rb
