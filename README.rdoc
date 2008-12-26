@@ -4,7 +4,7 @@
 
 == Description:
 
-noaa is a library that provides and API for the National Oceanic and Atmospheric Association's weather
+noaa is a library that provides an API for the National Oceanic and Atmospheric Association's weather
 data feeds. It currently provides access to two types of data: current conditions (through NOAA::CurrentConditions) and
 daily forecasts (through NOAA::Forecast).
 

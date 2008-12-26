@@ -6,7 +6,7 @@ require 'time'
 require 'libxml'
 require 'geokit'
 
-%w(current_conditions forecast forecast_day station station_writer).each { |file| require File.join(File.dirname(__FILE__), 'noaa', file) }
+%w(current_conditions forecast forecast_day http_service station station_writer).each { |file| require File.join(File.dirname(__FILE__), 'noaa', file) }
 
 module NOAA
   VERSION = '0.1.0'
