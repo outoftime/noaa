@@ -1,28 +1,38 @@
 = noaa
 
-* FIX (url)
+* http://github.com/outoftime/noaa
 
-== DESCRIPTION:
+== Description:
 
-FIX (describe your package)
+noaa is a library that provides and API for the National Oceanic and Atmospheric Association's weather
+data feeds. It currently provides access to two types of data: current conditions (through NOAA::CurrentConditions) and
+daily forecasts (through NOAA::Forecast).
 
-== FEATURES/PROBLEMS:
+== Features:
 
-* FIX (list of features or problems)
+- Find both current conditions and daily forecasts using lat/lng.
+- Access all relevant data returned by the NOAA using a simple and intuitive API
 
-== SYNOPSIS:
+== Usage:
 
-  FIX (code sample of usage)
+  # TODO: write usage
 
-== REQUIREMENTS:
+== Requirements:
 
-* FIX (list of requirements)
+- libxml-ruby >= 0.9.7 (if there is demand, I could look into allowing REXML as a fallback - shoot me an email)
+- andre-geokit >= 1.2.0
 
-== INSTALL:
+== Installation:
 
-* FIX (sudo gem install, anything else)
+NOAA is still a work in progress and not yet available as a gem.
 
-== LICENSE:
+== Contact:
+
+Mat Brown (mat@patch.com)
+
+I'm always open to feature requests, bugs, and patches.
+
+== License:
 
 (The MIT License)
 

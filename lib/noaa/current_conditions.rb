@@ -1,50 +1,41 @@
 module NOAA
+  # 
+  # Representation of the current conditions for a given observation point.
+  #
   class CurrentConditions
 
     class <<self
       private :new
 
-      #
-      # Create a CurrentConditions instance using from an XML document
-      #
-      # === Parameters
-      #
-      # +doc+:: LibXML::XML::Document containing the NOAA's current_obs response
-      #
-      # === Returns
-      #
-      # CurrentConditions object representing data in XML response
-      #
-      def from_xml(doc)
+      def from_xml(doc) #:nodoc:
         new(doc)
       end
     end
 
-    # :notnew:
-    def initialize(doc)
+    def initialize(doc) #:notnew:
       @doc = doc
     end
 
     #
-    # Returns a Time object containing the time at which these conditions were observed at the NOAA station
+    # Time object containing the time at which these conditions were observed at the NOAA station
     #
     def observed_at
       @observed_at ||= Time.parse(text_from_node('observation_time_rfc822'))
     end
 
     #
-    # Returns a text description of the current weather conditions, e.g. "Fair"
+    # Text description of the current weather conditions, e.g. "Fair"
     #
     def weather_description
       @weather_description ||= text_from_node('weather')
     end
 
     #
-    # Returns the current temperature in the requested units.
+    # The current temperature in the requested units.
     #
-    # === Parameters
-    #
-    # +unit+:: Either :f (Fahrenheit) or :c (Celsius). Other arguments will throw an exception.
+    #   conditions.temperature           #=> temperature in fahrenheit
+    #   conditions.temperature(:c)       #=> temperature in celsius
+    #   conditions.temperature(:kelvin)  #=> anything else raises an exception
     #
     def temperature(unit = :f)
       text_from_node_with_unit('temp', unit, :f, :c).to_i
@@ -88,20 +79,20 @@ module NOAA
     # 
     # The current barometric pressure
     #
-    # === Parameters:
-    #
-    # +unit+:: Either :in (inches) or :mb (millibars). Other arguments will throw an exception.
+    #   conditions.pressure       #=> pressure in inches
+    #   conditions.pressure(:mb)  #=> pressure in millibars
+    #   conditions.pressure(:psi) #=> anything else raises an exception
     #
     def pressure(unit = :in)
       text_from_node_with_unit('pressure', unit, :in, :mb).to_f
     end
 
     # 
-    # The current dew point
+    # The current dew point.
     #
-    # === Parameters:
-    #
-    # +unit+:: Either :f (fahrenheit) or :c (celsius). Other arguments will throw an exception.
+    #   conditions.dew_point           #=> dew point in fahrenheit
+    #   conditions.dew_point(:c)       #=> dew point in celsius
+    #   conditions.dew_point(:kelvin)  #=> anything else raises an exception
     #
     def dew_point(unit = :f)
       text_from_node_with_unit('dewpoint', unit, :f, :c).to_i
@@ -110,9 +101,9 @@ module NOAA
     # 
     # The current heat index
     #
-    # === Parameters:
-    #
-    # +unit+:: Either :f (fahrenheit) or :c (celsius). Other arguments will throw an exception.
+    #   conditions.heat_index           #=> heat index in fahrenheit
+    #   conditions.heat_index(:c)       #=> heat index in celsius
+    #   conditions.heat_index(:kelvin)  #=> anything else raises an exception
     #
     def heat_index(unit = :f)
       text_from_node_with_unit('heat_index', unit, :f, :c).to_i
@@ -121,9 +112,9 @@ module NOAA
     # 
     # The current wind chill
     #
-    # === Parameters:
-    #
-    # +unit+:: Either :f (fahrenheit) or :c (celsius). Other arguments will throw an exception.
+    #   conditions.wind_chill           #=> wind chill in fahrenheit
+    #   conditions.wind_chill(:c)       #=> wind chill in celsius
+    #   conditions.wind_chill(:kelvin)  #=> anything else raises an exception
     #
     def wind_chill(unit = :f)
       text_from_node_with_unit('windchill', unit, :f, :c).to_i
@@ -138,17 +129,6 @@ module NOAA
 
     private
 
-    #
-    # Extract the first text element from the first node in the document
-    #
-    # === Parameters
-    #
-    # +element_name+:: Name of the element to extract text from
-    # 
-    # === Returns
-    #
-    # String containing first text node of the first instance of the named element
-    #
     def text_from_node(element_name)
       @doc.find("/current_observation/#{element_name}[1]/child::text()").first.to_s
     end
