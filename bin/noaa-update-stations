@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require File.join(File.dirname(__FILE__), '..', 'lib', 'noaa')
+
+begin
+  file = File.open(File.join(File.dirname(__FILE__), '..', 'data', 'stations.yml'), 'w')
+  puts 'Downloading station list from NOAA...'
+  doc = NOAA::HttpService.new.get_station_list
+  puts 'Converting station list to YAML...'
+  NOAA::StationWriter.new(doc).write(file)
+  puts "Done."
+end
