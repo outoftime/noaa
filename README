@@ -22,7 +22,7 @@ daily forecasts (through NOAA::Forecast).
 
   sudo gem sources --add http://gems.github.com (only if you haven't done this before)
   sudo gem install outoftime-noaa
-  noaa-update-stations
+  sudo noaa-update-stations
 
 == Usage:
 
