@@ -19,25 +19,29 @@ class TestCurrentConditions < NOAA::TestCase
     conditions.weather_type_code.should == :skc
   end
 
-  test 'should return temperature in fahrenheit by default' do
-    conditions.temperature.should == 24
-  end
+  test 'should return image URL' do
+  conditions.image_url.should == 'http://weather.gov/weather/images/fcicons/skc.jpg'
+end
 
-  test 'should return temperature in fahrenheit when specified' do
-    conditions.temperature(:f).should == 24
-  end
+test 'should return temperature in fahrenheit by default' do
+  conditions.temperature.should == 24
+end
 
-  test 'should return temperature in celsius when specified' do
-    conditions.temperature(:c).should == -4
-  end
+test 'should return temperature in fahrenheit when specified' do
+  conditions.temperature(:f).should == 24
+end
 
-  test 'should raise ArgumentError if unknown unit specified for temperature' do
-    lambda { conditions.temperature(:kelvin) }.should raise_error(ArgumentError)
-  end
+test 'should return temperature in celsius when specified' do
+  conditions.temperature(:c).should == -4
+end
 
-  test 'should return relative humidity' do
-    conditions.relative_humidity.should == 52
-  end
+test 'should raise ArgumentError if unknown unit specified for temperature' do
+  lambda { conditions.temperature(:kelvin) }.should raise_error(ArgumentError)
+end
+
+test 'should return relative humidity' do
+  conditions.relative_humidity.should == 52
+end
 
   test 'should return wind direction' do
     conditions.wind_direction.should == 'Northwest'

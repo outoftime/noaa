@@ -67,6 +67,13 @@ module NOAA
       @weather_type_code ||= text_from_node('icon_url_name').sub(/\.jpg$/, '').to_sym
     end
 
+    # 
+    # Return the NWS image URL for the current weather as string
+    #
+    def image_url
+      @image_url ||= "#{text_from_node('icon_url_base')}#{text_from_node('icon_url_name')}"
+    end
+
     #
     # The current temperature in the requested units.
     #

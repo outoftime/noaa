@@ -43,6 +43,12 @@ class TestForecast < NOAA::TestCase
     end
   end
 
+  [80, 90, 20, 50].each_with_index do |probability, i|
+    should "return correct image URL for day #{i}" do
+      forecast[i].image_url.should == "http://www.nws.noaa.gov/weather/images/fcicons/ra#{probability}.jpg"
+    end
+  end
+
   [5, 94, 22, 50].each_with_index do |probability, i|
     should "return correct daytime probability of precipitation for day #{i}" do
       forecast[i].daytime_precipitation_probability.should == probability

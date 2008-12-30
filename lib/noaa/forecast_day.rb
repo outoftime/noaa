@@ -23,13 +23,16 @@ module NOAA
     # Symbol representing NOAA weather type. See NOAA::CurrentConditions#weather_type_code
     attr_reader :weather_type_code
 
+    # URL string for NOAA weather image
+    attr_reader :image_url
+
     # Percentage probability of precipitation during the day, between 6am and 6pm, as an integer (0-100)
     attr_reader :daytime_precipitation_probability
 
     # Percentage probability of precipitation during the evening/night, between 6pm and 6am, as an integer (0-100)
     attr_reader :evening_precipitation_probability
 
-    attr_writer :starts_at, :ends_at, :high, :low, :weather_summary, :weather_type_code, #:nodoc:
+    attr_writer :starts_at, :ends_at, :high, :low, :weather_summary, :weather_type_code, :image_url, #:nodoc:
                 :daytime_precipitation_probability, :evening_precipitation_probability #:nodoc:
   end
 end
