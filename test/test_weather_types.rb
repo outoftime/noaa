@@ -74,6 +74,14 @@ class TestWeatherTypes < NOAA::TestCase
       test "should convert #{description.inspect} to #{code.inspect}" do
         NOAA::WeatherTypes.code_for(description).should == code
       end
+
+      test "should return NWS daytime image URL for #{description}" do
+        NOAA::WeatherTypes.daytime_image_url_for(description).should == "http://weather.gov/weather/images/fcicons/#{code.to_s}.jpg"
+      end
+
+      test "should return NWS nighttime image URL for #{description}" do
+        NOAA::WeatherTypes.nighttime_image_url_for(description).should == "http://weather.gov/weather/images/fcicons/n#{code.to_s.sub(/\d+$/, '')}.jpg"
+      end
     end
   end
 end

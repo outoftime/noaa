@@ -4,10 +4,10 @@ module NOAA
                 [/^Haze$/, :mist],
                 [/(^Breezy|Windy)$/, :wind],
                 [/^Mostly Cloudy/i, :bkn],
-                [/^(Fair|Clear)/i,  :skc],
-                [/^A Few Clouds/i,  :few],
+                [/^(Fair|Clear)/i, :skc],
+                [/^A Few Clouds/i, :few],
                 [/^Partly Cloudy/i, :sct],
-                [/^Overcast/i,      :ovc],
+                [/^Overcast/i, :ovc],
                 [/^(Tornado|Funnel Cloud)/i, :nsvrtsra],
                 [/^(Showers |Thunderstorm |Snow |Light |Heavy |Low Drifting |Blowing |in Vicinity )*Snow( Grains| Showers| in Vicinity| Fog(\/Mist)?)*$/i, :sn],
                 [/^Thunderstorm Ice Pellets$/i, :ip],
@@ -16,8 +16,8 @@ module NOAA
                 [/^(Light Rain|(Light |Heavy )?Drizzle)( Fog(\/Mist)?)?$/i, :ra1],
                 [/^(Heavy )?Rain( Fog(\/Mist)?)?$/, :ra],
                 [/^(Light |Heavy )?(Showers )?Rain( Showers)?( and Breezy)?( in Vicinity)?( Fog\/Mist)?$/i, :shra],
-                [/Fog/i,            :fg],
-                [/^Smoke$/i,        :smoke],
+                [/Fog/i, :fg],
+                [/^Smoke$/i, :smoke],
                 [/^(Light |Heavy )?(Freezing (Rain|Drizzle)|(Rain|Drizzle) Freezing) (Rain|Drizzle)$/, :fzrara],
                 [/Snow Freezing (Rain|Drizzle)|Freezing (Rain|Drizzle) Snow/i, :mix],
                 [/Freezing (Rain|Drizzle)/i, :fzra],
@@ -32,6 +32,14 @@ module NOAA
           return code if description =~ expression
         end
         nil
+      end
+
+      def daytime_image_url_for(description)
+        "http://weather.gov/weather/images/fcicons/#{code_for(description)}.jpg"
+      end
+
+      def nighttime_image_url_for(description)
+        "http://weather.gov/weather/images/fcicons/n#{code_for(description).to_s.sub(/\d+$/, '')}.jpg"
       end
     end
   end
