@@ -6,7 +6,7 @@ require 'time'
 require 'libxml'
 require 'geokit'
 
-%w(current_conditions forecast forecast_day http_service station station_writer weather_types).each { |file| require File.join(File.dirname(__FILE__), 'noaa', file) }
+%w(current_conditions forecast forecast_day http_service station station_writer).each { |file| require File.join(File.dirname(__FILE__), 'noaa', file) }
 
 # 
 # The NOAA singleton provides methods to conveniently access information from the NOAA weather feed.

@@ -48,6 +48,7 @@ module NOAA
           day.high = maxima[i]
           day.low = minima[i]
           day.weather_summary = weather_summaries[i]
+          day.weather_type_code = weather_type_codes[i]
           day.daytime_precipitation_probability = precipitation_probabilities[i*2]
           day.evening_precipitation_probability = precipitation_probabilities[i*2+1]
         end
@@ -82,6 +83,12 @@ module NOAA
     def weather_summaries
       @weather_summaries ||= @doc.find(%q{/dwml/data/parameters[1]/weather[1]/weather-conditions}).map do |node|
         node['weather-summary'].to_s
+      end
+    end
+
+    def weather_type_codes
+      @weather_type_codes ||= @doc.find(%q{/dwml/data/parameters[1]/conditions-icon/icon-link/text()}).map do |node|
+        node.to_s.match(/n?([a-z_]+)\d*\.jpg$/)[1].to_sym
       end
     end
 

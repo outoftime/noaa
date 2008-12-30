@@ -29,6 +29,43 @@ module NOAA
     def weather_description
       @weather_description ||= text_from_node('weather')
     end
+    alias_method :weather_summary, :weather_description
+
+    # 
+    # NWS code representing weather type. This distills the #weather_description
+    # into one of a much more manageable set of possibilities. Possible values are:
+    #
+    # - <code>:skc</code> - Clear
+    # - <code>:wind</code> - Windy
+    # - <code>:few</code> - A Few Clouds
+    # - <code>:sct</code> - Partly Cloudy
+    # - <code>:bkn</code> - Mostly Cloudy
+    # - <code>:ovc</code> - Overcast
+    # - <code>:ra1</code> - Light Rain
+    # - <code>:ra</code> - Rain
+    # - <code>:shra</code> - Rain Showers
+    # - <code>:tsra</code> - Thunderstorms
+    # - <code>:ip</code> - Hail
+    # - <code>:fzra</code> - Freezing Rain
+    # - <code>:mix</code> - Wintry Mix
+    # - <code>:sn</code> - Snow
+    # - <code>:fg</code> - Fog
+    # - <code>:smoke</code> - Smoke
+    # - <code>:dust</code> - Dust/Sand
+    # - <code>:mist</code> - Haze
+    # - <code>:nsvrtsra</code> - Tornado
+    # - <code>:fzrara</code> - Freezing Rain/Rain
+    # - <code>:raip</code> - Rain/Hail
+    # - <code>:rasn</code> - Rain/Snow
+    # - <code>:hi_shwrs</code> - Showers in Vicinity
+    # - <code>:hi_tsra</code> - Thunderstorm in Vicinity
+    #
+    # See http://www.weather.gov/xml/current_obs/weather.php for the NWS's list of possible
+    # descriptions and their type codes.
+    #
+    def weather_type_code
+      @weather_type_code ||= text_from_node('icon_url_name').sub(/\.jpg$/, '').to_sym
+    end
 
     #
     # The current temperature in the requested units.

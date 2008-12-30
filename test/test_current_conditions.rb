@@ -11,6 +11,14 @@ class TestCurrentConditions < NOAA::TestCase
     conditions.weather_description.should == 'Fair'
   end
 
+  test 'should return weather description from #weather_summary' do
+    conditions.weather_summary.should == 'Fair'
+  end
+
+  test 'should return weather type code' do
+    conditions.weather_type_code.should == :skc
+  end
+
   test 'should return temperature in fahrenheit by default' do
     conditions.temperature.should == 24
   end
