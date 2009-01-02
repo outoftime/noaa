@@ -30,7 +30,7 @@ module NOAA
     # NOAA.current_conditions_at_station when you need to get the latest conditions.
     #
     def current_conditions(lat, lng)
-      current_conditions_at_station(Station.closest_to(lat, lng))
+      current_conditions_at_station(Station.closest_to(lat, lng).id)
     end
     
     # 
