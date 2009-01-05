@@ -14,7 +14,7 @@ require 'geokit'
 # NOAA API you will need; one exception is discussed below.
 #
 module NOAA
-  VERSION = '0.2.1'
+  VERSION = '0.2.2'
 
   class <<self
     # 

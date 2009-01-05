@@ -53,7 +53,7 @@ module NOAA
     # - <code>:smoke</code> - Smoke
     # - <code>:dust</code> - Dust/Sand
     # - <code>:mist</code> - Haze
-    # - <code>:nsvrtsra</code> - Tornado
+    # - <code>:svrtsra</code> - Tornado
     # - <code>:fzrara</code> - Freezing Rain/Rain
     # - <code>:raip</code> - Rain/Hail
     # - <code>:rasn</code> - Rain/Snow
@@ -64,7 +64,7 @@ module NOAA
     # descriptions and their type codes.
     #
     def weather_type_code
-      @weather_type_code ||= text_from_node('icon_url_name').sub(/\.jpg$/, '').to_sym
+      @weather_type_code ||= text_from_node('icon_url_name').gsub(/^n|\.jpg$/, '').to_sym
     end
 
     # 
