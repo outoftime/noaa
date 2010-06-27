@@ -16,7 +16,7 @@ daily forecasts (through NOAA::Forecast).
 == Requirements:
 
 - libxml-ruby >= 0.9.7 (if there is demand, I could look into allowing REXML as a fallback - shoot me an email)
-- andre-geokit >= 1.2.0
+- geokit >= 1.5.0
 
 == Installation:
 

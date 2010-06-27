@@ -1,6 +1,6 @@
 require 'rubygems'
 gem 'libxml-ruby', '>= 0.9.7'
-gem 'andre-geokit', '>= 1.2.0'
+gem 'geokit', '>= 1.5.0'
 
 require 'time'
 require 'libxml'

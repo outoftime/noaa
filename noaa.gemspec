@@ -33,20 +33,20 @@ This can be run at any time to update the stations, but you must run it once to 
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<libxml-ruby>, [">= 0.9.7"])
-      s.add_runtime_dependency(%q<andre-geokit>, [">= 1.2.0"])
+      s.add_runtime_dependency(%q<geokit>, [">= 1.5.0"])
       s.add_development_dependency(%q<jeremymcanally-context>, [">= 0.0.6"])
       s.add_development_dependency(%q<jeremymcanally-matchy>, [">= 0.0.1"])
       s.add_development_dependency(%q<ruby-debug>, ["~> 0.10"])
     else
       s.add_dependency(%q<libxml-ruby>, [">= 0.9.7"])
-      s.add_dependency(%q<andre-geokit>, [">= 1.2.0"])
+      s.add_dependency(%q<geokit>, [">= 1.5.0"])
       s.add_dependency(%q<jeremymcanally-context>, [">= 0.0.6"])
       s.add_dependency(%q<jeremymcanally-matchy>, [">= 0.0.1"])
       s.add_dependency(%q<ruby-debug>, ["~> 0.10"])
     end
   else
     s.add_dependency(%q<libxml-ruby>, [">= 0.9.7"])
-    s.add_dependency(%q<andre-geokit>, [">= 1.2.0"])
+    s.add_dependency(%q<geokit>, [">= 1.5.0"])
     s.add_dependency(%q<jeremymcanally-context>, [">= 0.0.6"])
     s.add_dependency(%q<jeremymcanally-matchy>, [">= 0.0.1"])
     s.add_dependency(%q<ruby-debug>, ["~> 0.10"])

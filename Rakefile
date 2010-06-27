@@ -16,7 +16,7 @@ Echoe.new('noaa', NOAA::VERSION) do |p|
   p.url = 'http://github.com/outoftime/noaa'
   p.install_message = "Be sure to update the weather station list:\n\n\tsudo noaa-update-stations\n\nThis can be run at any time to update the stations, but you must run it once to initially populate the station list."
   p.runtime_dependencies = [Gem::Dependency.new('libxml-ruby', '>= 0.9.7'),
-                            Gem::Dependency.new('andre-geokit', '>= 1.2.0')]
+                            Gem::Dependency.new('geokit', '>= 1.5.0')]
   p.development_dependencies = [Gem::Dependency.new('jeremymcanally-context', '>= 0.0.6'),
                                 Gem::Dependency.new('jeremymcanally-matchy', '>= 0.0.1'),
                                 Gem::Dependency.new('ruby-debug', '~> 0.10')]
