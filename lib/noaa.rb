@@ -1,10 +1,12 @@
-require 'rubygems'
-gem 'libxml-ruby', '>= 0.9.7'
-gem 'geokit', '>= 1.5.0'
-
-require 'time'
-require 'libxml'
-require 'geokit'
+begin
+  require 'time'
+  require 'nokogiri'
+  require 'geokit'
+rescue LoadError => e
+  if require 'rubygems' then retry
+  else raise(e)
+  end
+end
 
 %w(current_conditions forecast forecast_day http_service station station_writer).each { |file| require File.join(File.dirname(__FILE__), 'noaa', file) }
 
@@ -14,7 +16,7 @@ require 'geokit'
 # NOAA API you will need; one exception is discussed below.
 #
 module NOAA
-  VERSION = '0.2.2'
+  autoload :VERSION, File.join(File.dirname(__FILE__), 'noaa', 'version')
 
   class <<self
     # 

@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), 'test_helper')
 
 class TestCurrentConditions < NOAA::TestCase
-  XML_DOC = LibXML::XML::Document.file(File.join(File.dirname(__FILE__), 'data', 'KVAY.xml'))
+  XML_DOC = File.open(File.join(File.dirname(__FILE__), 'data', 'KVAY.xml')) { |f| Nokogiri::XML(f) }
 
   test 'should return observation time' do
     conditions.observed_at.should == Time.parse('2008-12-23 10:54:00 -0500')

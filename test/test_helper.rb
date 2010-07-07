@@ -1,12 +1,11 @@
-require 'rubygems'
-gem 'jeremymcanally-context', '>= 0.0.6'
-gem 'jeremymcanally-matchy', '>= 0.0.1'
-gem 'ruby-debug'
-
-
-require 'context'
-require 'matchy'
-require 'ruby-debug'
+begin
+  require 'context'
+  require 'matchy'
+rescue LoadError => e
+  if require 'rubygems' then retry
+  else raise(e)
+  end
+end
 
 require File.join(File.dirname(__FILE__), '..', 'lib', 'noaa')
 
