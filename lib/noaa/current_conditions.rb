@@ -174,7 +174,7 @@ module NOAA
     private
 
     def text_from_node(element_name)
-      @doc.xpath("/current_observation/#{element_name}[1]/child::text()").first.to_s
+      @doc.find("/current_observation/#{element_name}[1]/child::text()").first.to_s
     end
 
     def text_from_node_with_unit(element_name, unit, *allowed_units)
