@@ -35,7 +35,7 @@ daily forecasts (through NOAA::Forecast).
   # for why this is a good idea
   station_id = NOAA::Station.closest_to(lat, lng).id
   # persist the station id wherever...
-  conditions = NOAA.current_conditions_for_station(station_id)
+  conditions = NOAA.current_conditions_at_station(station_id)
 
   # Get four-day forecast
   forecast = NOAA.forecast(4, lat, lng) # This method should not be called more than once an hour for a given lat/lng
