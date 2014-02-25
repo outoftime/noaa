@@ -2,6 +2,8 @@ begin
   require 'time'
   require 'nokogiri'
   require 'geokit'
+  require 'libxml'
+  require 'open-uri'
 rescue LoadError => e
   if require 'rubygems' then retry
   else raise(e)
