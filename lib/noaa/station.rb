@@ -1,5 +1,5 @@
 module NOAA
-  # 
+  #
   # Data about an NOAA observation station. When accessing current conditions, the NOAA XML API
   # takes a station ID as input; thus, to find the current conditions for an arbitrary location, one
   # must first determine the closest weather station to that location. The NOAA.current_conditions
@@ -25,7 +25,7 @@ module NOAA
         stations.find { |station| station.id == id }
       end
 
-      # 
+      #
       # Find the station closest to a given location. Can accept arguments in any of the following
       # three forms (all are equivalent):
       #
@@ -82,10 +82,10 @@ module NOAA
 
     # Station name (e.g., "New York City, Central Park")
     attr_reader :name
-    
+
     # Two-digit abbreviation for state in which station resides (e.g., "NY")
     attr_reader :state
-    
+
     attr_reader :xml_url #:nodoc:
 
     def initialize(properties)
@@ -94,7 +94,7 @@ module NOAA
       end
       @coordinates = GeoKit::LatLng.new(properties['latitude'], properties['longitude'])
     end
-    
+
     # Latitude of station
     def latitude
       @coordinates.lat

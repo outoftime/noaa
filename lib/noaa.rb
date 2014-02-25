@@ -12,7 +12,7 @@ end
 
 %w(current_conditions forecast forecast_day http_service station station_writer).each { |file| require File.join(File.dirname(__FILE__), 'noaa', file) }
 
-# 
+#
 # The NOAA singleton provides methods to conveniently access information from the NOAA weather feed.
 # For the most part, NOAA.current_conditions and NOAA.forecast will be the only entry point into the
 # NOAA API you will need; one exception is discussed below.
@@ -21,7 +21,7 @@ module NOAA
   autoload :VERSION, File.join(File.dirname(__FILE__), 'noaa', 'version')
 
   class <<self
-    # 
+    #
     # Retrieve the current weather conditions for a given latitude and longitude. Returns an
     # instance of NOAA::CurrentConditions.
     #
@@ -36,8 +36,8 @@ module NOAA
     def current_conditions(lat, lng)
       current_conditions_at_station(Station.closest_to(lat, lng).id)
     end
-    
-    # 
+
+    #
     # Retrieve the current weather conditions for a given weather station ID. Returns an
     # instance of NOAA::CurrentConditions.
     #
@@ -49,7 +49,7 @@ module NOAA
       CurrentConditions.from_xml(HttpService.new.get_current_conditions(station_id))
     end
 
-    # 
+    #
     # Retrieve daily forecast information for a given latitude and longitude. Returns
     # an instance of NOAA::Forecast.
     #

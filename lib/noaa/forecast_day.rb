@@ -1,5 +1,5 @@
 module NOAA
-  # 
+  #
   # A ForecastDay contains forecast data for a single day. Each day should start at 6am and
   # end at 6am the following day (assuming that is invariant on the part of the NOAA's data
   # feed). ForecastDay objects are accessed using NOAA::Forecast#[]
