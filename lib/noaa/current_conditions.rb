@@ -1,5 +1,5 @@
 module NOAA
-  # 
+  #
   # Representation of the current conditions for a given observation point.
   #
   class CurrentConditions
@@ -31,7 +31,7 @@ module NOAA
     end
     alias_method :weather_summary, :weather_description
 
-    # 
+    #
     # NWS code representing weather type. This distills the #weather_description
     # into one of a much more manageable set of possibilities. Possible values are:
     #
@@ -67,7 +67,7 @@ module NOAA
       @weather_type_code ||= text_from_node('icon_url_name').gsub(/^n|\.jpg$/, '').to_sym
     end
 
-    # 
+    #
     # Return the NWS image URL for the current weather as string
     #
     def image_url
@@ -85,42 +85,42 @@ module NOAA
       text_from_node_with_unit('temp', unit, :f, :c).to_i
     end
 
-    # 
+    #
     # The current relative humidity percentage (0-100)
     #
     def relative_humidity
       text_from_node('relative_humidity').to_i
     end
 
-    # 
+    #
     # The current cardinal or ordinal direction that the wind is coming from (e.g., "Northwest")
     #
     def wind_direction
       text_from_node('wind_dir')
     end
 
-    # 
+    #
     # The current direction that the wind is coming from degrees (e.g. 330)
     #
     def wind_degrees
       text_from_node('wind_degrees').to_i
     end
 
-    # 
+    #
     # The current wind speed in miles per hour as a float (e.g., 3.45)
     #
     def wind_speed
       text_from_node('wind_mph').to_f
     end
 
-    # 
+    #
     # The current wind gust in miles per hour as a float, or nil if none
     #
     def wind_gust
       text_from_node('wind_gust_mph').to_f
     end
 
-    # 
+    #
     # The current barometric pressure
     #
     #   conditions.pressure       #=> pressure in inches
@@ -131,7 +131,7 @@ module NOAA
       text_from_node_with_unit('pressure', unit, :in, :mb).to_f
     end
 
-    # 
+    #
     # The current dew point.
     #
     #   conditions.dew_point           #=> dew point in fahrenheit
@@ -142,7 +142,7 @@ module NOAA
       text_from_node_with_unit('dewpoint', unit, :f, :c).to_i
     end
 
-    # 
+    #
     # The current heat index
     #
     #   conditions.heat_index           #=> heat index in fahrenheit
@@ -153,7 +153,7 @@ module NOAA
       text_from_node_with_unit('heat_index', unit, :f, :c).to_i
     end
 
-    # 
+    #
     # The current wind chill
     #
     #   conditions.wind_chill           #=> wind chill in fahrenheit
@@ -164,7 +164,7 @@ module NOAA
       text_from_node_with_unit('windchill', unit, :f, :c).to_i
     end
 
-    # 
+    #
     # The current visibility in miles
     #
     def visibility
