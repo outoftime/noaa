@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<dwml version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.nws.noaa.gov/forecasts/xml/DWMLgen/schema/DWML.xsd">
+  <head>
+    <product srsName="WGS 1984" concise-name="dwmlByDay" operational-mode="official">
+      <title>NOAA's National Weather Service Forecast by 24 Hour Period</title>
+      <field>meteorological</field>
+      <category>forecast</category>
+      <creation-date refresh-frequency="PT1H">2008-12-23T21:46:52Z</creation-date>
+    </product>
+    <source>
+      <more-information>http://www.nws.noaa.gov/forecasts/xml/</more-information>
+      <production-center>Meteorological Development Laboratory<sub-center>Product Generation Branch</sub-center></production-center>
+      <disclaimer>http://www.nws.noaa.gov/disclaimer.html</disclaimer>
+      <credit>http://www.weather.gov/</credit>
+      <credit-logo>http://www.weather.gov/images/xml_logo.gif</credit-logo>
+      <feedback>http://www.weather.gov/feedback.php</feedback>
+    </source>
+  </head>
+  <data>
+    <location>
+      <location-key>point1</location-key>
+      <point latitude="40.72" longitude="-73.99"/>
+    </location>
+    <moreWeatherInformation applicable-location="point1">http://forecast.weather.gov/MapClick.php?textField1=40.72&amp;textField2=-73.99</moreWeatherInformation>
+    <time-layout time-coordinate="local" summarization="24hourly">
+      <layout-key>k-p24h-n4-1</layout-key>
+      <start-valid-time>2008-12-23T06:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-24T06:00:00-05:00</end-valid-time>
+      <start-valid-time>2008-12-24T06:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-25T06:00:00-05:00</end-valid-time>
+      <start-valid-time>2008-12-25T06:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-26T06:00:00-05:00</end-valid-time>
+      <start-valid-time>2008-12-26T06:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-27T06:00:00-05:00</end-valid-time>
+    </time-layout>
+    <time-layout time-coordinate="local" summarization="12hourly">
+      <layout-key>k-p12h-n8-2</layout-key>
+      <start-valid-time>2008-12-23T06:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-23T18:00:00-05:00</end-valid-time>
+      <start-valid-time>2008-12-23T18:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-24T06:00:00-05:00</end-valid-time>
+      <start-valid-time>2008-12-24T06:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-24T18:00:00-05:00</end-valid-time>
+      <start-valid-time>2008-12-24T18:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-25T06:00:00-05:00</end-valid-time>
+      <start-valid-time>2008-12-25T06:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-25T18:00:00-05:00</end-valid-time>
+      <start-valid-time>2008-12-25T18:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-26T06:00:00-05:00</end-valid-time>
+      <start-valid-time>2008-12-26T06:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-26T18:00:00-05:00</end-valid-time>
+      <start-valid-time>2008-12-26T18:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-27T06:00:00-05:00</end-valid-time>
+    </time-layout>
+    <time-layout time-coordinate="local" summarization="24hourly">
+      <layout-key>k-p4d-n1-3</layout-key>
+      <start-valid-time>2008-12-23T06:00:00-05:00</start-valid-time>
+      <end-valid-time>2008-12-27T06:00:00-05:00</end-valid-time>
+    </time-layout>
+    <parameters applicable-location="point1">
+      <temperature type="maximum" units="Fahrenheit" time-layout="k-p24h-n4-1">
+        <name>Daily Maximum Temperature</name>
+        <value>32</value>
+        <value>49</value>
+        <value>43</value>
+        <value>41</value>
+      </temperature>
+      <temperature type="minimum" units="Fahrenheit" time-layout="k-p24h-n4-1">
+        <name>Daily Minimum Temperature</name>
+        <value>31</value>
+        <value>41</value>
+        <value>33</value>
+        <value>39</value>
+      </temperature>
+      <probability-of-precipitation type="12 hour" units="percent" time-layout="k-p12h-n8-2">
+        <name>12 Hourly Probability of Precipitation</name>
+        <value>5</value>
+        <value>77</value>
+        <value>94</value>
+        <value>84</value>
+        <value>22</value>
+        <value>19</value>
+        <value>50</value>
+        <value>50</value>
+      </probability-of-precipitation>
+      <weather time-layout="k-p24h-n4-1">
+        <name>Weather Type, Coverage, and Intensity</name>
+        <weather-conditions weather-summary="Rain">
+          <value coverage="definitely" intensity="light" weather-type="rain" qualifier="none"/>
+          <value coverage="areas" intensity="none" additive="and" weather-type="fog" qualifier="none"/>
+        </weather-conditions>
+        <weather-conditions weather-summary="Rain">
+          <value coverage="definitely" intensity="light" weather-type="rain" qualifier="none"/>
+          <value coverage="areas" intensity="none" additive="and" weather-type="fog" qualifier="none"/>
+        </weather-conditions>
+        <weather-conditions weather-summary="Slight Chance Rain">
+          <value coverage="slight chance" intensity="light" weather-type="rain" qualifier="none"/>
+        </weather-conditions>
+        <weather-conditions weather-summary="Chance Rain">
+          <value coverage="chance" intensity="light" weather-type="rain" qualifier="none"/>
+        </weather-conditions>
+      </weather>
+      <conditions-icon type="forecast-NWS" time-layout="k-p24h-n4-1">
+        <name>Conditions Icons</name>
+        <icon-link>http://www.nws.noaa.gov/weather/images/fcicons/ra80.jpg</icon-link>
+        <icon-link>http://www.nws.noaa.gov/weather/images/fcicons/ra90.jpg</icon-link>
+        <icon-link>http://www.nws.noaa.gov/weather/images/fcicons/ra20.jpg</icon-link>
+        <icon-link>http://www.nws.noaa.gov/weather/images/fcicons/ra50.jpg</icon-link>
+      </conditions-icon>
+      <hazards time-layout="k-p4d-n1-3">
+        <name>Watches, Warnings, and Advisories</name>
+        <hazard-conditions xsi:nil="true"/>
+      </hazards>
+    </parameters>
+  </data>
+</dwml>
