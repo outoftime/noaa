@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = %q{Ruby API for National Oceanic and Atmospheric Administration weather data}
   s.email = %q{mat@patch.com}
   s.executables = ["noaa-update-stations"]
-  s.files = Dir.glob('{bin,lib,test,data}/**/*') + %w(CHANGELOG README)
+  s.files = Dir.glob('{bin,lib,test,data}/**/*') + %w(CHANGELOG README.md)
   s.has_rdoc = true
   s.homepage = %q{http://github.com/outoftime/noaa}
   s.post_install_message = %q{Be sure to update the weather station list:
