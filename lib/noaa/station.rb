@@ -31,7 +31,7 @@ module NOAA
       #
       #   NOAA::Station.closest_to(37.989, -77.507)
       #   NOAA::Station.closest_to([37.989, -77.507])
-      #   NOAA::Station.closest_to(GeoKit::LatLng.new(37.989, -77.507))
+      #   NOAA::Station.closest_to(Geokit::LatLng.new(37.989, -77.507))
       def closest_to(*args)
         if args.length == 1
           if args.first.respond_to?(:distance_to)
@@ -39,19 +39,19 @@ module NOAA
           elsif %w(first last).all? { |m| args.first.respond_to?(m) }
             closest_to_lat_lng(args.first)
           else
-            raise ArgumentError, "expected two-element Array or GeoKit::LatLng"
+            raise ArgumentError, "expected two-element Array or Geokit::LatLng"
           end
         elsif args.length == 2
           closest_to_lat_lng(args)
         else
-          raise ArgumentError, "closest_to() will accept one Array argument, one GeoKit::LatLng argument, or two FixNum arguments"
+          raise ArgumentError, "closest_to() will accept one Array argument, one Geokit::LatLng argument, or two FixNum arguments"
         end
       end
 
       private
 
       def closest_to_lat_lng(pair)
-        closest_to_coordinates(GeoKit::LatLng.new(pair.first, pair.last))
+        closest_to_coordinates(Geokit::LatLng.new(pair.first, pair.last))
       end
 
       def closest_to_coordinates(coordinates)
@@ -74,7 +74,7 @@ module NOAA
       end
     end
 
-    # GeoKit::LatLng containing the station's coordinates
+    # Geokit::LatLng containing the station's coordinates
     attr_reader :coordinates
 
     # Station ID (e.g., "KNYC")
@@ -92,7 +92,7 @@ module NOAA
       @id, @name, @state, @xml_url = %w(id name state xml_url).map do |p|
         properties[p]
       end
-      @coordinates = GeoKit::LatLng.new(properties['latitude'], properties['longitude'])
+      @coordinates = Geokit::LatLng.new(properties['latitude'], properties['longitude'])
     end
     
     # Latitude of station
