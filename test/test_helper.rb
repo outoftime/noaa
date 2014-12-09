@@ -1,6 +1,7 @@
 begin
   require 'context'
   require 'matchy'
+  require 'openssl'
 rescue LoadError => e
   if require 'rubygems' then retry
   else raise(e)
