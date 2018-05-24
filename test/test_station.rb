@@ -14,7 +14,7 @@ class TestStation < NOAA::TestCase
   end
 
   test 'should find closest to coordinates' do
-    NOAA::Station.closest_to(GeoKit::LatLng.new(40.8, -73.96)).id.should == 'KNYC'
+    NOAA::Station.closest_to(Geokit::LatLng.new(40.8, -73.96)).id.should == 'KNYC'
   end
 
   test 'should find closest to lat/lng' do
@@ -54,7 +54,7 @@ class TestStation < NOAA::TestCase
   end
 
   test 'should return coordinates' do
-    station.coordinates.should == GeoKit::LatLng.new(40.783, -73.967)
+    station.coordinates.should == Geokit::LatLng.new(40.783, -73.967)
   end
 
   private
